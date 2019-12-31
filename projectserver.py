@@ -3,7 +3,7 @@
 ## Date: 29th Dec 2019
 
 
-from flask import Flask, jsonify,  request, abort, make_response
+from flask import Flask, jsonify, request, abort, make_response
 ## from flask_cors import CORS
 
 app = Flask(__name__, static_url_path='',static_folder='../')
