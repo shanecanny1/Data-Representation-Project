@@ -60,8 +60,8 @@ def update_Movie(ChartNo):
         abort(404)
     if not request.json:
         abort(400)
-    if 'ChartNo' in request.json and type(request.json['ChartNo']) is not str:
-        abort(400)
+    #if 'ChartNo' in request.json and type(request.json['ChartNo']) is not str:
+       # abort(400)
     if 'Title' in request.json:
         foundMovie['Title'] = request.json['Title'] 
 
@@ -77,7 +77,7 @@ def update_Movie(ChartNo):
     if 'RunningTimeMinutes' in request.json:
         foundMovie['RunningTimeMinutes'] = request.json['RunningTimeMinutes']
    
-    values = (foundMovie['ChartNo'],foundMovie['Title'], foundMovie['Director'], foundMovie['Budget'], foundMovie['BoxOffice'], foundMovie['RunningTimeMinutes'])
+    values = (foundMovie['Title'], foundMovie['Director'], foundMovie['Budget'], foundMovie['BoxOffice'], foundMovie['RunningTimeMinutes'],foundMovie['ChartNo'])
     
     projectDAO.update(values)
     return jsonify(foundMovie),201

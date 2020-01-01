@@ -44,7 +44,7 @@ class ProjectDAO:
 
     def update(self, values):
         cursor = self.db.cursor()
-        sql="update movies set ChartNo=%s,Title=%s,Director=%s,Budget=%s,BoxOffice=%s,RunningTimeMinutes=%s where ChartNo = %s"
+        sql="update movies set Title=%s,Director=%s,Budget=%s,BoxOffice=%s,RunningTimeMinutes=%s where ChartNo = %s"
         cursor.execute(sql, values)
         self.db.commit()
 
