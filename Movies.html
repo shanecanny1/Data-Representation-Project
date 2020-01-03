@@ -7,7 +7,7 @@
         <title> Movies</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
        
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
         <h1>Movies</h1>
@@ -53,6 +53,7 @@
         document.getElementById('showCreateButton').style.display="block"
         document.getElementById('movieTable').style.display="block"
         document.getElementById('createUpdateForm').style.display="none"
+       
     }
     function showUpdate(buttonElement){
         document.getElementById('showCreateButton').style.display="none"
@@ -80,10 +81,10 @@
         
         console.log(JSON.stringify(movie))
         createMovieAjax(movie)
-        addMovieToTable(movie)
-        clearForm()
+        //addMovieToTable(movie)
+        //clearForm()
         
-        showViewAll()
+        //showViewAll()
     }
     function doUpdate(){
         var movie = getMovieFromForm();
@@ -192,7 +193,6 @@
         });
     }
     function createMovieAjax(movie){
-        
         console.log(JSON.stringify(movie));
         $.ajax({
             "url": 'http://127.0.0.1:5000/Movies',
@@ -202,8 +202,12 @@
             contentType: "application/json; charset=utf-8",
             "success":function(result){
                 //console.log(result);
-                 
-            },
+                  movie.ChartNo=result.ChartNo
+                  addMovieToTable(movie)
+                  clearForm() 
+                  showViewAll()
+                  
+                              },
             "error":function(xhr,status,error){
                 console.log("error: "+status+" msg:"+error);
             }
@@ -219,7 +223,7 @@
             contentType: "application/json; charset=utf-8",
             "success":function(result){
                // console.log(result);
-                  
+                
             },
             "error":function(xhr,status,error){
                 console.log("error: "+status+" msg:"+error);

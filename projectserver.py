@@ -41,11 +41,11 @@ def create_Movie():
         "Title": request.json['Title'],
         "Director": request.json['Director'],
         "Budget":request.json['Budget'],
-        "Box Office":request.json['Box Office'],
+        "BoxOffice":request.json['BoxOffice'],
         "RunningTimeMinutes":request.json['RunningTimeMinutes']
     }
     
-    values = (Movie['ChartNo'], Movie['Title'], Movie['Director'], Movie['Budget'], Movie['Box Office'], Movie['RunningTimeMinutes'])
+    values = (Movie['ChartNo'], Movie['Title'], Movie['Director'], Movie['Budget'], Movie['BoxOffice'], Movie['RunningTimeMinutes'])
     newID = projectDAO.create(values)
     Movie['ChartNo'] = newID
     return jsonify(Movie),201
