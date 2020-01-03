@@ -29,7 +29,7 @@
         </div>
         <div id='createUpdateForm' style="display: none">
                 <h2><span id="createLabel">Create a</span> <span id="updateLabel">update</span> Movie</h2>
-                ChartNo <input type="text" name="ChartNo"/> <br/>
+                ChartNo <input type="text" name="ChartNo"/> <br/>                
                 Title <input type="text" name="Title"/> <br/>
                 Director <input type="text" name="Director"/> <br/>
                 Budget <input type="text" name="Budget"/> <br/>
@@ -49,7 +49,7 @@
         document.getElementById('doCreateButton').style.display="block"
         document.getElementById('doUpdateButton').style.display="none"
     }
-    function showViewAll(){
+        function showViewAll(){
         document.getElementById('showCreateButton').style.display="block"
         document.getElementById('movieTable').style.display="block"
         document.getElementById('createUpdateForm').style.display="none"
@@ -81,10 +81,10 @@
         
         console.log(JSON.stringify(movie))
         createMovieAjax(movie)
-        //addMovieToTable(movie)
-        //clearForm()
+        addMovieToTable(movie)
+        clearForm()
         
-        //showViewAll()
+        showViewAll()
     }
     function doUpdate(){
         var movie = getMovieFromForm();
@@ -121,7 +121,7 @@
         var cell7 = rowElement.insertCell(6);
         cell7.innerHTML = '<button onclick="showUpdate(this)">Update</button>'
         var cell8 = rowElement.insertCell(7);
-        cell8.innerHTML = '<button onclick=doDelete(this)>delete</button>'
+        cell8.innerHTML = '<button onclick=doDelete(this)>Delete</button>'
     }
     function clearForm(){
         var form = document.getElementById('createUpdateForm')
@@ -154,7 +154,7 @@
     function populateFormWithMovie(movie){
         var form = document.getElementById('createUpdateForm')
         form.querySelector('input[name="ChartNo"]').disabled = true
-        form.querySelector('input[name="ChartNo"]').value  = movie.ChartNo
+        form.querySelector('input[name="ChartNo"]').value= movie.ChartNo
         form.querySelector('input[name="Title"]').value= movie.Title
         form.querySelector('input[name="Director"]').value= movie.Director
         form.querySelector('input[name="Budget"]').value= movie.Budget
@@ -203,9 +203,9 @@
             "success":function(result){
                 //console.log(result);
                   movie.ChartNo=result.ChartNo
-                  addMovieToTable(movie)
-                  clearForm() 
-                  showViewAll()
+                  //addMovieToTable(movie)
+                  //clearForm() 
+                  //showViewAll()
                   
                               },
             "error":function(xhr,status,error){
@@ -223,6 +223,7 @@
             contentType: "application/json; charset=utf-8",
             "success":function(result){
                // console.log(result);
+              // movie.ChartNo=result.ChartNo
                 
             },
             "error":function(xhr,status,error){
