@@ -216,14 +216,14 @@
     function updateMovieAjax(movie){
         console.log(JSON.stringify(movie));
         $.ajax({
-            "url": 'http://127.0.0.1:5000/Movies/'+encodeURI(movie.Chart),
+            "url": 'http://127.0.0.1:5000/Movies/'+encodeURI(movie.ChartNo),
             "method":"PUT",
             "data":JSON.stringify(movie),
             "dataType": "JSON",
             contentType: "application/json; charset=utf-8",
             "success":function(result){
                // console.log(result);
-              // movie.ChartNo=result.ChartNo
+              movie.ChartNo=result.ChartNo
                 
             },
             "error":function(xhr,status,error){
