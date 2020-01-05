@@ -1,14 +1,14 @@
 import mysql.connector
-
+import dbconfig as cfg
 class ProjectDAO:
     db=""
     def __init__(self): 
         self.db = mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        port=3308,
-        database="project"
+        host=cfg.mysql['host'],
+        user=cfg.mysql['username'],
+        password=cfg.mysql['password'],
+        port=cfg.mysql['port'],
+        database=cfg.mysql['database']
         )
     
             
