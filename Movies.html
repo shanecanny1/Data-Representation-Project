@@ -4,16 +4,42 @@
 
 <html>
     <head>
-        <title> Movies</title>
+        <style type="text/css">
+        body{ background-image: url("images/dream.gif");
+        background-size: cover;
+        background-repeat: no-repeat;
+        padding: 15px;
+		}	
+        body { 
+            color: white; 
+        }	
+        h1 {color: white;}
+        div {color: white;}
+        
+        .container {
+        width: 500px;
+        clear: both;
+        }
+
+        .container input {
+        width: 100%;
+        clear: both;
+        }
+        
+
+
+        </style>
+        <title>Movies</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
        
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     </head>
     <body>
-        <h1>Movies</h1>
+        
+        <h1> Top Grossing Movies</h1>
         <div> <button id="showCreateButton" onclick="showCreate()">Create</button></div>
         <div>
-            <table class="table" id="movieTable">
+            <table class="table" id="movieTable" >
                 <tr>
                         <th>ChartNo</th>
                         <th>Title</th>
@@ -27,7 +53,7 @@
                 
             </table>
         </div>
-        <div id='createUpdateForm' style="display: none">
+        <div id='createUpdateForm' style="display: none" class="container">
                 <h2><span id="createLabel">Create a</span> <span id="updateLabel">update</span> Movie</h2>
                 ChartNo <input type="text" name="ChartNo"/> <br/>                
                 Title <input type="text" name="Title"/> <br/>
@@ -206,7 +232,7 @@
                   //addMovieToTable(movie)
                   //clearForm() 
                   //showViewAll()
-                  
+              
                               },
             "error":function(xhr,status,error){
                 console.log("error: "+status+" msg:"+error);
